@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mahesh Biradar</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI', sans-serif;
+}
+
+body{
+background:#0f0f0f;
+color:#eee;
+overflow-x:hidden;
+}
+
+/* HERO */
+header{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.7)),
+url("https://images.unsplash.com/photo-1519741497674-611481863552");
+background-size:cover;
+background-position:center;
+animation:fadeIn 2s ease;
+}
+
+header h1{
+font-size:60px;
+letter-spacing:3px;
+}
+
+header p{
+margin-top:15px;
+font-size:22px;
+opacity:0.9;
+}
+
+/* SECTION */
+.section{
+padding:100px 20px;
+text-align:center;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+.container{
+max-width:900px;
+margin:auto;
+font-size:18px;
+line-height:1.8;
+}
+
+/* SLIDER */
+.slider{
+max-width:900px;
+margin:40px auto;
+overflow:hidden;
+border-radius:15px;
+}
+
+.slides{
+display:flex;
+width:500%;
+animation:slide 18s infinite;
+}
+
+.slides img{
+width:100%;
+}
+
+/* CARTOON */
+.cartoon{
+background:#1a1a1a;
+padding:40px;
+border-radius:12px;
+max-width:600px;
+margin:auto;
+box-shadow:0 10px 25px rgba(0,0,0,0.5);
+}
+
+.cartoon img{
+width:220px;
+border-radius:10px;
+}
+
+/* BUTTON */
+.btn{
+margin-top:20px;
+padding:12px 25px;
+background:#e74c3c;
+color:white;
+border:none;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+}
+
+/* HIDDEN MESSAGE */
+.hidden{
+display:none;
+margin-top:20px;
+font-size:18px;
+color:#ccc;
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+position:fixed;
+top:20px;
+right:20px;
+background:#e74c3c;
+border:none;
+color:white;
+padding:10px 15px;
+border-radius:20px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#000;
+text-align:center;
+padding:30px;
+margin-top:50px;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+@keyframes slide{
+0%{transform:translateX(0);}
+20%{transform:translateX(0);}
+25%{transform:translateX(-100%);}
+45%{transform:translateX(-100%);}
+50%{transform:translateX(-200%);}
+70%{transform:translateX(-200%);}
+75%{transform:translateX(-300%);}
+95%{transform:translateX(-300%);}
+100%{transform:translateX(-400%);}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- OPTIONAL MUSIC -->
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="playMusic()">🎵 Music</button>
+
+<header>
+
+<h1>Mahesh Biradar</h1>
+<p>A Journey & A New Beginning with Nikita</p>
+
+</header>
+
+<div class="section">
+
+<h2>About</h2>
+
+<div class="container">
+<p>
+A calm, grounded personality with strong values.
+Mahesh's journey reflects growth, discipline and meaningful connections.
+</p>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Life Journey</h2>
+
+<div class="container">
+<p>
+From early dreams to real achievements,
+every phase shaped his character into something inspiring.
+</p>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Moments</h2>
+
+<div class="slider">
+<div class="slides">
+
+<img src="IMG_3559.jpeg">
+<img src="IMG_6289.jpeg">
+<img src="IMG_3559.jpeg">
+<img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+<img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff">
+
+</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>The Groom</h2>
+
+<div class="cartoon">
+
+<img src="cartoon.PNG">
+
+<p>
+A new chapter begins with Nikita —
+built on trust, respect and shared dreams.
+</p>
+
+<button class="btn" onclick="showMessage()">View Message</button>
+
+<p id="msg" class="hidden">
+Wishing you both a lifetime of love, happiness and success ❤️
+</p>
+
+</div>
+
+</div>
+
+<footer>
+<p>Mahesh Biradar & Nikita</p>
+</footer>
+
+<script>
+
+// MUSIC
+function playMusic(){
+document.getElementById("music").play();
+}
+
+// SCROLL ANIMATION
+let sections = document.querySelectorAll('.section');
+
+window.addEventListener('scroll', () => {
+sections.forEach(sec => {
+let top = window.scrollY;
+let offset = sec.offsetTop - 300;
+
+if(top > offset){
+sec.classList.add('show');
+}
+});
+});
+
+// MESSAGE
+function showMessage(){
+document.getElementById("msg").style.display="block";
+}
+
+</script>
+
+</body>
+
+</html>
